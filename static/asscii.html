@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asscii</title>
+    <style>
+        body {
+          background-color: black;
+          color: white;
+        }
+    </style>
+</head>
+<body>
+    <audio id="myAudio" autoplay loop>
+        <source src="./audio/aud3.mp3" type="audio/mpeg">
+     </audio>
+    <pre id="text-container"></pre>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+        var textContainer = document.getElementById('text-container');
+        
+        var txtFilePath = './asscii.txt';
+
+        var xhr = new XMLHttpRequest();
+        
+        xhr.responseType = 'text';
+        
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+            textContainer.textContent = xhr.responseText;
+            }
+            else {
+            textContainer.textContent = 'Error loading the file.';
+            }
+        };
+        
+        xhr.open('GET', txtFilePath, true);
+        
+        xhr.send();
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+main > div {
+    background-image: url('./images/boba.png'); 
+    padding: 20px;
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: black solid 2px;
+    width: 400px;
+}
+
+main > div > h2{
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+h2::after{
+    background-color: black;
+}
+
+#submitButton{
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 103, 129);
+    border: none;
+    border-radius: 5px;
+    padding: 6px;
+}

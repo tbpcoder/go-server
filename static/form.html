@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/form.css">
+</head>
+<body>
+    <audio id="myAudio">
+        <source src="./audio/aud2.mp3" type="audio/mpeg">
+    </audio>
+    <header>Go Practice</header>
+    <main>
+        <div>
+            <h2>This is the form Page</h2>
+            <p>Enter the Password</p>
+            <p>Your gonna love it!</p>
+            <form>
+                <div><label>Password</label>
+                <input type="password" id="passwordInput" placeholder="4 letter word, on this page"></div>
+                <button id="submitButton">Sussy baka</button>
+            </form>
+        </div>
+    </main>
+    <footer>Thanks for visiting</footer>
+
+    <script>
+        var submitButton = document.getElementById("submitButton");
+        var audio = document.getElementById("myAudio");
+
+        function playAudio() {
+            audio.play();
+        }
+
+        submitButton.addEventListener("click", function(event) {
+            event.preventDefault(); 
+            var passwordInput = document.getElementById("passwordInput");
+            var password = passwordInput.value;
+
+            if (password === "baka") {
+                window.location.href = "/asscii";
+                passwordInput.value = "";
+            } else {
+                playAudio();
+                passwordInput.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
