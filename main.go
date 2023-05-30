@@ -1,11 +1,13 @@
 package main
 
 import (
+	"embed"
 	"fmt"
 	"log"
 	"net/http"
 )
 
+var staticFiles embed.FS
 
 // /home route handler
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -52,6 +54,9 @@ func main(){
 
 	fileServer := http.FileServer(http.Dir("./static"))
 
+	fs := http.FileServer(http.FS(staticFiles))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	
 	http.Handle("/", fileServer)
 	http.HandleFunc("/form", formHandler)
 	http.HandleFunc("/home", homeHandler)
